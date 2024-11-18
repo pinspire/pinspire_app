@@ -1,8 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const LangForm = () => {
     return (
-        <div className='flex flex-col border-2 h-[90vh] w-[40vw] mt-5 ml-96 rounded-2xl shadow-lg'>
+        <div className='lang-bg'>
+            <div className='flex flex-col border-2 h-[90vh] w-[40vw] mt-5 ml-96 rounded-2xl shadow-lg bg-white'>
             <div className='flex flex-col mt-16'>
                 <div className=' flex flex-col items-center'>
                     <p className='text-[1.7rem] font-semibold text-center'>What's your language and where do you live?</p>
@@ -30,8 +32,9 @@ const LangForm = () => {
                         {/* Add more country options as needed */}
                     </select>
                 </div>
-                <button className='border-2 p-3 w-[30vw] ml-16 rounded-full font-bold mt-16 bg-[#FF338A] border-[#FF338A] text-white '>Next</button>
+                <Link to='/categories' className='border-2 p-3 w-[30vw] ml-16 rounded-full font-bold mt-16 bg-[#FF338A] border-[#FF338A] text-white '>Next</Link>
             </div>
+        </div>
         </div>
     )
 }

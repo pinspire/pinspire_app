@@ -4,8 +4,8 @@ import { BsHCircleFill } from "react-icons/bs";
 
 const Navbar = () => {
   return (
-    <div className="h-[]">
-      <div className="flex gap-8 h-[13vh] items-center border-b-2 shadow-md">
+    <div className="fixed top-0 left-0 w-full bg-white z-50">
+      <div className="flex gap-8 h-[13vh] items-center border-b-2 shadow-sm">
         <p>Logo</p>
         <p>Home</p>
         <p>Create</p>

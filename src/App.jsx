@@ -8,6 +8,9 @@ import LangForm from './pages/LangForm'
 import Categories from './pages/Categories'
 import AddPicture from './pages/AddPicture'
 import HomeFeed from './pages/HomeFeed'
+import Create from './pages/Gender/Create'
+import Login from './pages/Login'
+import Apic from './pages/a-pic'
 
 function App() {
   const router = createBrowserRouter([
@@ -18,6 +21,10 @@ function App() {
     {
       path:"/registration",
       element: <RegistrationForm />
+    },
+    {
+      path:'/login',
+      element: <Login />
     },
     {
       path:"/welcomepage",
@@ -42,6 +49,14 @@ function App() {
     {
       path:"/home",
       element: <HomeFeed />
+    },
+    {
+      path:"/create",
+      element: <Create />
+    },
+    {
+      path:"/apic",
+      element: <Apic />
     }
   ])
  

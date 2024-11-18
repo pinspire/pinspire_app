@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaRegCircle } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 
 const GenderForm = () => {
@@ -20,7 +21,7 @@ const GenderForm = () => {
             <p>Male</p>
           </div>
         </div>
-        <button className='border-2 p-3 w-[30vw] ml-16 rounded-full font-bold mt-16 bg-[#FF338A] border-[#FF338A] text-white '>Next</button>
+        <Link to='/langform' className='border-2 p-3 w-[30vw] ml-16 rounded-full font-bold mt-16 bg-[#FF338A] border-[#FF338A] text-white '>Next</Link>
       </div>
     </div>
   )
