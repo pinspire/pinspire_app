@@ -11,6 +11,8 @@ import HomeFeed from './pages/HomeFeed'
 import Create from './pages/Gender/Create'
 import Login from './pages/Login'
 import Apic from './pages/a-pic'
+import Boards from './pages/Boards'
+import SavedBoards from './pages/Boards'
 
 function App() {
   const router = createBrowserRouter([
@@ -55,8 +57,12 @@ function App() {
       element: <Create />
     },
     {
-      path:"/apic",
+      path:"/apic/:id",
       element: <Apic />
+    },
+    {
+      path:"/boards",
+      element: <SavedBoards />
     }
   ])
  

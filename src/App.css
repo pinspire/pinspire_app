@@ -27,3 +27,33 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+
+/* Container for the masonry layout */
+.pinterest-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Flexible column width */
+    gap: 15px; /* Spacing between items */
+    padding: 20px;
+  }
+  
+  /* Individual image item */
+  .pinterest-item {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .pinterest-item:hover {
+    transform: scale(1.05); /* Zoom-in effect on hover */
+  }
+  
+  /* Image styling */
+  .pinterest-image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+  }
+  

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 // import pinfood from '../assets/images/pin-food.jpg';
 import food from "../../assets/images/pin-pis/food.jpg";
 import jew from "../../assets/images/jew.jpg";
@@ -45,6 +45,8 @@ import menfashion from "../../assets/images/menfashion.jpg";
 import cartoon from "../../assets/images/cartoon.jpg";
 import man from "../../assets/images/man.jpg";
 import meme from "../../assets/images/meme.jpg";
+import { apiGetPinsByCategory } from '../../services/pin';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -81,7 +83,7 @@ const Categories = () => {
     "Drawing",
     "Drinks",
     "Selfie",
-    
+
     "Lip",
     "Animals",
     "Home",
@@ -106,6 +108,27 @@ const Categories = () => {
   ];
 
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true); // State to track loading status
+  const [error, setError] = useState(null); // State to track any errors
+
+
+  useEffect(() => {
+    // Fetch categories from backend
+    const fetchCategories = async () => {
+      try {
+        const response = await apiGetPinsByCategory(pin.category);
+        setSelectedCategories(response.data); // Assuming the API returns an array of categories
+      } catch (err) {
+        console.error("Error fetching categories:", err);
+        setError("Failed to load categories. Please try again.");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchCategories();
+  }, []);
+
 
   const toggleCategory = (category) => {
     setSelectedCategories((prev) =>
@@ -117,8 +140,14 @@ const Categories = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Selected Categories:", selectedCategories);
+    if (selectedCategories.length === 5) {
+      // Navigate to the home page with selected categories
+      navigate("/home", { state: { categories: selectedCategories } });
+    } else {
+      alert("Please select exactly 5 categories.");
+    }
   };
+
 
   const categoryImages = {
     Jewelry: jew,
@@ -185,6 +214,14 @@ const Categories = () => {
             }}>
               <div className='absolute inset-0 bg-black bg-opacity-15 rounded-2xl'></div>
 
+              {/* Tick icon */}
+              {selectedCategories.includes(category) && (
+                <div className='absolute top-2 right-2 w-6 h-6 bg-black rounded-full flex items-center justify-center'>
+                  <span className='text-white text-sm font-bold'>✔</span>
+                </div>
+              )}
+
+              {/* Category label */}
               <div className='absolute left-2 bottom-2 text-white font-bold'>
                 {category}
               </div>
