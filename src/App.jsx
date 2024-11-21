@@ -6,13 +6,15 @@ import WelcomePage from './pages/WelcomePage'
 import GenderForm from './pages/Gender'
 import LangForm from './pages/LangForm'
 import Categories from './pages/Categories'
-import AddPicture from './pages/AddPicture'
+// import AddPicture from './pages/AddPicture'
 import HomeFeed from './pages/HomeFeed'
 import Create from './pages/Gender/Create'
 import Login from './pages/Login'
 import Apic from './pages/a-pic'
-import Boards from './pages/Boards'
-import SavedBoards from './pages/Boards'
+
+
+import Board from './pages/Board'
+import AllBoards from './pages/SavedBoards'
 
 function App() {
   const router = createBrowserRouter([
@@ -44,10 +46,10 @@ function App() {
       path:"/categories",
       element: <Categories />
     },
-    {
-      path:"/addpic",
-      element: <AddPicture />
-    },
+    // {
+    //   path:"/addpic",
+    //   element: <AddPicture />
+    // },
     {
       path:"/home",
       element: <HomeFeed />
@@ -61,8 +63,12 @@ function App() {
       element: <Apic />
     },
     {
+      path:"/saved",
+      element: <AllBoards />
+    },
+    {
       path:"/boards",
-      element: <SavedBoards />
+      element: <Board />
     }
   ])
  

@@ -24,7 +24,9 @@ const handleSubmit = async (event) => {
     return (
         <div className='log-bg'>
             <div className='flex flex-col border-2 h-[100vh] w-[35vw] mt-5 ml-96 rounded-2xl shadow-lg bg-white'>
-                <p className='flex justify-center'>Logo</p>
+                <p className='flex justify-center'>
+                    <img src="./src/assets/images/logo.png" alt="" className='h-8'/>
+                </p>
                 <p className='flex self-center text-[30px] font-semibold font-sans ml-16 w-[25vw]'>Log into Pinspire</p>
                 <p className='flex justify-center ml-4'>Get new inspiration</p>
                 <form onSubmit={handleSubmit} className='flex flex-col w-[20vw] ml-24'>

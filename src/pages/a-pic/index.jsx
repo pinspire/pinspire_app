@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
 import { BsThreeDots } from "react-icons/bs";
 import { FaChevronDown } from "react-icons/fa6";
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { apiGetPin, apiGetPinsByCategory } from '../../services/pin';
 import { FaArrowRight } from "react-icons/fa";
 
@@ -17,6 +17,7 @@ const Apic = () => {
     const [boardName, setBoardName] = useState("");
     const [boards, setBoards] = useState([]);
     const [selectedBoard, setSelectedBoard] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchPin = async () => {
@@ -46,21 +47,21 @@ const Apic = () => {
         setShowDropdown(false);
     };
 
-    const handleCreateBoard = () => {
-        if (boardName.trim() === "") {
-            alert("Please enter a valid board name!");
-            return;
-        }
+    // const handleCreateBoard = () => {
+    //     if (boardName.trim() === "") {
+    //         alert("Please enter a valid board name!");
+    //         return;
+    //     }
 
-        // Save the new board (here we just use state, but this could be a backend call)
-        const newBoard = {
-            name: boardName,
-            image: pin?.image,
-        };
-        setBoards((prevBoards) => [...prevBoards, newBoard]);
-        setBoardName(""); // Clear input field
-        setShowModal(false); // Close the modal
-    };
+    //     // Save the new board (here we just use state, but this could be a backend call)
+    //     const newBoard = {
+    //         name: boardName,
+    //         image: pin?.image,
+    //     };
+    //     setBoards((prevBoards) => [...prevBoards, newBoard]);
+    //     setBoardName(""); // Clear input field
+    //     setShowModal(false); // Close the modal
+    // };
 
     const handleSelectBoard = (board) => {
         setSelectedBoard(board);
@@ -87,7 +88,7 @@ const Apic = () => {
                                 <ul>
                                     <li
                                         className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                                        onClick={() => setShowModal(true)} // Show modal on "Create Board"
+                                        onClick={() => navigate("/boards")} // Navigate to "/boards"
                                     >
                                         Create Board
                                     </li>
@@ -151,7 +152,7 @@ const Apic = () => {
             </div>
 
             {/* Modal for Creating a Board */}
-            {showModal && (
+            {/* {showModal && (
                 <div className="fixed inset-0 flex justify-center items-center bg-gray-500 bg-opacity-50">
                     <div className="bg-white p-6 rounded-lg w-[40vw] h-[50vh]">
                         <h2 className="text-xl font-semibold mb-4 ">Create Board</h2>
@@ -176,10 +177,10 @@ const Apic = () => {
                         </button>
                     </div>
                 </div>
-            )}
+            )} */}
 
             {/* Display Created Boards */}
-            <div className="mt-8">
+            {/* <div className="mt-8">
                 <h2 className="text-xl font-semibold mb-4">Your Boards</h2>
                 <div>
                     {boards.length > 0 ? (
@@ -201,7 +202,7 @@ const Apic = () => {
                         <p>No boards created yet.</p>
                     )}
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };

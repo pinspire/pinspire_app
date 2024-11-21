@@ -228,7 +228,7 @@ const Categories = () => {
             </button>
           ))}
         </div>
-        <button type='submit' className='flex border-2 p-2 px-28 mt-8 ml-56 rounded-full'>Select 5 categories</button>
+        <button type='submit' className='flex border-2  bg-[#FF338A] border-[#FF338A] p-2 px-28 mt-8 ml-56 rounded-full text-white font-semibold'>Select 5 categories</button>
       </form>
     </div>
   )
